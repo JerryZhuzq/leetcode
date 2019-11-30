@@ -1,4 +1,2 @@
-a = set()
-a.add((1,1))
-b = list(a)
-print(b)
+a = list(0 for x in range(8))
+print(a)
