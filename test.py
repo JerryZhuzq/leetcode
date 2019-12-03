@@ -1,2 +1,1 @@
-a = list(0 for x in range(8))
-print(a)
+print(min(5,5))
