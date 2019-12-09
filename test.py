@@ -1,1 +1,2 @@
-print(min(5,5))
+for i in reversed(range(18)):
+    print(i)
