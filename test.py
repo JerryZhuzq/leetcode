@@ -1,2 +1,2 @@
-a = [-1 for x in range(10)]
+a = list(0 for x in range(8))
 print(a)
