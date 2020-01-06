@@ -1,2 +1,2 @@
-a = list(0 for x in range(8))
-print(a)
+for i in reversed(range(18)):
+    print(i)
