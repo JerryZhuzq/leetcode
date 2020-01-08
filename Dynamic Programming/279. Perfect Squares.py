@@ -56,3 +56,16 @@ class Solution:
                     if computeNum(n, i):
                         return i
         # best time complexity solution
+
+        #dp bottom-up
+
+        class Solution:
+            def numSquares(self, n: int) -> int:
+                res = [x for x in range(n + 1)]
+                if n == 0:
+                    return 0
+                for i in range(1, n + 1):
+                    for j in range(1, int(i ** 0.5) + 1):
+                        res[i] = min(res[i], res[i - j * j] + 1)
+                return res[-1]
+
