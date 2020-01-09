@@ -1,2 +1,1 @@
-for i in reversed(range(18)):
-    print(i)
+print([[-1] for x in range(5)])
