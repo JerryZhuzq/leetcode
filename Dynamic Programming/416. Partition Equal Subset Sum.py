@@ -2,13 +2,11 @@ class Solution:
 
     # Top-Down
     def canPartition(self, nums: List[int]) -> bool:
-        sum = 0
         n = len(nums)
-        for i in nums:
-            sum += i
+        sum = sum(nums)
         if sum % 2 != 0 or sum < 1:
             return False
-        memo = [[-1 for x in range(int(sum / 2) + 1)] for x in range(n + 1)]
+        memo = [[-1 for x in range(sum // 2 + 1)] for x in range(n + 1)]
 
         def tryPartition(index, sum):
             if sum == 0:
@@ -22,7 +20,7 @@ class Solution:
             memo[index][sum] = (tryPartition(index - 1, sum) or tryPartition(index - 1, sum - nums[index]))
             return memo[index][sum]
 
-        return tryPartition(n - 1, int(sum / 2))
+        return tryPartition(n - 1, sum // 2)
 
     # Bottom-Up
 
