@@ -19,4 +19,4 @@ def findPrimeNum(n):
             return k
         k -= 1
 
-print(findPrimeNum(5))
+print(findPrimeNum(30))
