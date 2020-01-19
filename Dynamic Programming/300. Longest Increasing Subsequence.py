@@ -49,6 +49,7 @@ class Solution:
         def binarySearch(t):
             left, right = 0, len(c) - 1
             mid = (left + right) // 2
+
             while (left < right):
                 if c[mid] > t:
                     right = mid
@@ -58,6 +59,7 @@ class Solution:
                     c[mid] = t
                     return
                 mid = (left + right) // 2
+            # process when left == right
             if mid == len(c) - 1 and t > c[mid]:
                 c.append(t)
             else:
