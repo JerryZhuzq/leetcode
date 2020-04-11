@@ -1,2 +1,2 @@
-for i in reversed(range(18)):
-    print(i)
+a = 9
+print(int(a/2))
