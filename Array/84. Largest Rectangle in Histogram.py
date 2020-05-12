@@ -16,3 +16,6 @@ class Solution:
                 cur = stack.pop()
                 res = max(res, cur[0]*(len(heights)-stack[-1][1]-1))
         return res
+
+
+# 用stack记录每个数的index和value 如果新输入的数大于栈顶的数 将其出栈并计算最大值 时间空间复杂度均为O(n)
