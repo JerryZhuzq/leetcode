@@ -1,13 +1,21 @@
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+import sys
+for line in sys.stdin:
+    if len(line) == 1:
+    print(int(a[0]) + int(a[1]))
 
 
-dummy = ListNode(0)
-head = ListNode(2)
 
-pre = head
-pre = dummy
-
-print(pre.val)
+# try:
+#     while True:
+#         line = sys.stdin.readline()
+#         l = int(line)
+#         res1 = []
+#         res2 = []
+#         for i in range(l):
+#             line = sys.stdin.readline()
+#             val1, val2 = int(line.split()[0]), int(line.split()[0])
+#             res1.append(val1)
+#             res2.append(val2)
+#         print(res1, res2)
+# except:
+#     pass
