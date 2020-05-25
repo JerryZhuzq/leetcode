@@ -1,8 +1,9 @@
-import sys
-for line in sys.stdin:
-    if len(line) == 1:
-    print(int(a[0]) + int(a[1]))
+from queue import PriorityQueue
 
+q = PriorityQueue()
+q.put(1)
+q.put(2)
+print(q[0])
 
 
 # try:
