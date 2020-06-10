@@ -72,3 +72,7 @@ def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         if node:
             heappush(q, (node.val, count, node))
     return dummy.next
+
+# multiple linked list could be solved using this method.
+# push each linked not into priority queue to heapify to achieve
+# sorted lists
