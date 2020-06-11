@@ -16,3 +16,6 @@ class Solution:
             return cur_total, cur_root
         total, root = helper(root, root.val)
         return total
+
+# The tricky part here is the existence of negative number, which means for non-exist
+# node we couldn't just return 0, instead we need to return the number itself or a number less than 0
