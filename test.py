@@ -1,16 +1,5 @@
-def wordBreak(s: str, wordDict):
-    def helper(i):
-        if i == len(s):
-            return [[]]
+from collections import Counter
 
-        temp = []
-        for word in wordDict:
-            if s.startswith(word, i):
-                for words in helper(i + len(word)):
-                    temp.append([word] + words)
-        return temp
-    return [' '.join(x) for x in helper(0)]
-
-
-
-print(wordBreak(s, wordDict))
+a = 'adsfadfa(dasfda)'
+b = Counter(a)['(']
+print(b)
