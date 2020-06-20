@@ -1,6 +1,8 @@
-import math
-a = '34345245'
-b = []
-for i in range(math.ceil(len(a)/3)):
-    b.append(a[i*3:min(i*3+3, len(a))])
-print(b)
+import heapq
+from math import sqrt
+
+K = 3
+points = []
+
+res = heapq.nsmallest(K, points, key=lambda x: sqrt(x[0] ** 2 + x[1] ** 2))
+print(res)
