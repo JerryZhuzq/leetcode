@@ -1,8 +1,6 @@
-import heapq
-from math import sqrt
+a = ['asdfds','aweadsf','asdf']
+indegree = dict(zip(set(''.join(a)), [0]*len(set(''.join(a)))))
+adjacent = dict(zip(set(''.join(a)), [[] for _ in range(len(set(''.join(a))))]))
+print(indegree)
+print(adjacent)
 
-K = 3
-points = []
-
-res = heapq.nsmallest(K, points, key=lambda x: sqrt(x[0] ** 2 + x[1] ** 2))
-print(res)
