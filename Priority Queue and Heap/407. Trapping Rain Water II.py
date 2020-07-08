@@ -1,3 +1,4 @@
+from heapq import heappush
 class Solution:
     def trapRainWater(self, heightMap: List[List[int]]) -> int:
         import heapq
