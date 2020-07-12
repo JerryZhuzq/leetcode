@@ -1,6 +1,7 @@
-a = [3,2,1,5,6,4]
 import heapq
+
+a = ["JFK","ERD","JFK","SFO","ATL","SFO"]
 heapq.heapify(a)
-print(heapq.nlargest(2, a))
-
-
+a[0] = a[0][1:]
+heapq.heapify(a)
+print(a)
