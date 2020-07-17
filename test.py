@@ -1,7 +1,5 @@
-import heapq
+m, n = 2, 2
 
-a = ["JFK","ERD","JFK","SFO","ATL","SFO"]
-heapq.heapify(a)
-a[0] = a[0][1:]
-heapq.heapify(a)
-print(a)
+visited = [[0]*n for _ in range(m)]
+visited[0][0] = 2
+print(visited)
