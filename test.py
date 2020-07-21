@@ -1,5 +1,6 @@
-m, n = 2, 2
+from collections import deque
 
-visited = [[0]*n for _ in range(m)]
-visited[0][0] = 2
-print(visited)
+m, n = 5, 5
+memo = [[-1] * (n+1) for _ in range(m+1)]
+memo[1][1] =3
+print(memo)
