@@ -28,4 +28,14 @@ def maxProfit1(prices) -> int:
         prof[0], prof[1], prof[2] = max(prof[0], prof[2]-prices[i]), prof[0] + prices[i], max(prof[1], prof[2])
         print(prof)
     return max(prof)
-# dp O(n)
+# dp O(n)  prof = [hold, sell, cooldown(reset)]
+# we should consider the stock problem as an investment problem, if we buy a stock,
+# then current hold status should be equal to hold-stock
+
+# hold = max(hold, cooldown-prices[i])
+# obtain the maximum fund compared with either buy current stock after cooldown or keep the previous stock
+
+# sell = prices[i] - hold
+# straight forward, obtain the fund after sell stock in account
+
+# cooldown = max(sell,
