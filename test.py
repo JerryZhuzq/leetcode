@@ -85,7 +85,5 @@ import math
 #         pre = i
 #
 # print(int(res))
-a = {1:1}
-b = a.copy()
-b[1] -= 1
-print(a)
+a = '-1'
+print(int(a))
