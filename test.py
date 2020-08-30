@@ -85,5 +85,4 @@ import math
 #         pre = i
 #
 # print(int(res))
-a = '-1'
-print(int(a))
+a, b = "21", "12"
