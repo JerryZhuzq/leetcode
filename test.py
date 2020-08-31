@@ -85,4 +85,8 @@ import math
 #         pre = i
 #
 # print(int(res))
-a, b = "21", "12"
+import heapq
+a = [[-2, 'like'], [-2, 'is']]
+heapq.heapify(a)
+while a:
+    print(heapq.heappop(a))
