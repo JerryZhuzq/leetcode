@@ -33,3 +33,22 @@ class Solution:
             for s in range(target, n - 1, -1):
                 dp[s] += dp[s - n]
         return dp[-1]
+
+
+class Solution:
+    def findTargetSumWays(self, nums: List[int], S: int) -> int:
+        total = sum(nums)
+        if total < S or (total+S) % 2 == 1:
+            return 0
+        dp = defaultdict(int)
+        for i, n in enumerate(nums):
+            tmp = defaultdict(int)
+            if not dp:
+                dp[n] += 1
+                dp[-n] += 1
+                continue
+            for k in dp:
+                tmp[k+n] += dp[k]
+                tmp[k-n] += dp[k]
+            dp = tmp
+        return dp[S] if S in dp else 0

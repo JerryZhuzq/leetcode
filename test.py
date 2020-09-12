@@ -1,92 +1,107 @@
-import math
-# line = input()
-# try:
-#     m, n = list(map(int, line.split()))
-# except:
-#     print([])
-# if m < 10 or m >1000 or n < 10 or n > 1000:
-#     print([])
+# from itertools import permutations
+# from collections import Counter
 #
-# total_length, current_length = m * n, 0
-# offset = 0
-# store = []
-# while (m-2*offset) >= 1 and (n-2*offset) >= 1:
-#     if (m-2*offset) == 1 or (n-2*offset) == 1:
-#         for i in range(offset, m-offset):
-#             for j in range(offset, n-offset):
-#                 store.append([i, j])
-#         break
-#     for i in range(offset, n-offset-1):
-#         store.append([offset, i])
-#     for i in range(offset, m-offset-1):
-#         store.append([i, n-offset-1])
-#     for i in range(offset, n-offset-1):
-#         store.append([m-offset-1, n-i-1])
-#     for i in range(offset, m-offset-1):
-#         store.append([m-i-1, offset])
-#     offset += 1
-# res = []
-# for i in range(len(store)):
-#     if i+1 > 10:
-#         num = str(i+1)
-#         if num[-1] == '7' and int(num[-2]) % 2 == 1:
-#             res.append(store[i])
-# print(res)
-
-
-# line = input()
-# m, n = list(map(int, line.split(' ')))
-# print(m, n)
-# if m < 10 or m > 1000 or n < 10 or n > 1000:
-#     print([])
-# total_length, current_length = m * n, 0
-# offset = 0
-# store = []
-# while (m-2*offset) >= 1 and (n-2*offset) >= 1:
-#     if (m-2*offset) == 1 or (n-2*offset) == 1:
-#         for i in range(offset, m-offset):
-#             for j in range(offset, n-offset):
-#                 store.append([i, j])
-#         break
-#     for i in range(offset, n-offset-1):
-#         store.append([offset, i])
-#     for i in range(offset, m-offset-1):
-#         store.append([i, n-offset-1])
-#     for i in range(offset, n-offset-1):
-#         store.append([m-offset-1, n-i-1])
-#     for i in range(offset, m-offset-1):
-#         store.append([m-i-1, offset])
-#     offset += 1
-# print(store)
-# res = []
-# for i in range(len(store)):
-#     if i+1 > 10:
-#         num = str(i+1)
-#         if num[-1] == '7' and int(num[-2]) % 2 == 1:
-#             res.append(store[i])
-# print(res)
-
-# from collections import defaultdict
-# import math
+# b = '123556779'
+# d = '123456798'
 #
-# line = int(input())
-# lines = input()
-# nodes = list(map(int, lines.split(' ')))
-# store = defaultdict(int)
-# for n in nodes:
-#     store[n] += 1
-# pre = 0
-# res = 1
-# for i in sorted(store.keys()):
-#     if i == 0:
-#         continue
+# c = Counter(d)
+# ans = ''
+#
+# if_f = False
+# if_over = False
+# small = min(c.keys())
+# for i in b:
+#     if not if_f:
+#         if i in c:
+#             ans += i
+#             c[i] -= 1
+#             if c[i] == 0:
+#                 c.pop(i)
+#                 if c:
+#                     small = min(c.keys())
+#
+#         else:
+#             if_f = True
+#             for n in range(int(i)+1, 10):
+#                 n = str(n)
+#                 if n in c:
+#                     ans += n
+#                     c[n] -= 1
+#                     if c[n] == 0:
+#                         c.pop(n)
+#                         if c:
+#                             small = min(c.keys())
+#                     break
+#                 if_over = True
+#             if if_over:
+#                 print('-1')
+#                 break
 #     else:
-#         res = res*(math.factorial(store[pre]*2)/(math.factorial(store[i])*math.factorial(store[pre]*2-store[i])))
-#         pre = i
+#         ans += small
+#         c[small] -= 1
+#         if c[small] == 0:
+#             c.pop(small)
+#             if c:
+#                 small = min(c.keys())
 #
-# print(int(res))
-import heapq
-a = [[-2, 'like'], [-2, 'is']]
-heapq.heapify(a)
-while a:
-    print(heapq.heappop(a))
+#
+# if not if_over:
+#     if ans == b:
+#         one, two = ans[-1], ans[-2]
+#         print(ans[:-2]+one+two)
+#     else:
+#         print(ans)
+#
+#
+
+
+import sys
+from collections import Counter
+b = '2222252'
+d = '2222215'
+c = Counter(d)
+if_f = False
+if_over = False
+small = min(c.keys())
+ans = ''
+for i in b:
+    if not if_f:
+        if i in c:
+            ans += i
+            c[i] -= 1
+            if c[i] == 0:
+                c.pop(i)
+                if c and i == small:
+                    small = min(c.keys())
+        else:
+            if_f = True
+            for n in range(int(i)+1, 10):
+                n = str(n)
+                if n in c:
+                    ans += n
+                    c[n] -= 1
+                    if c[n] == 0:
+                        c.pop(n)
+                        if c and n == small:
+                            small = min(c.keys())
+                    break
+                if n == '9':
+                    if_over = True
+            if if_over:
+                print('-1')
+                break
+    else:
+        ans += small
+        c[small] -= 1
+        if c[small] == 0:
+            c.pop(small)
+            if c:
+                small = min(c.keys())
+if not if_over:
+    if ans == b:
+        one, two = ans[-1], ans[-2]
+        print(ans[:-2]+one+two)
+    else:
+        print(ans)
+
+#

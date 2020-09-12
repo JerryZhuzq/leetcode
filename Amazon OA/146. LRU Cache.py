@@ -43,6 +43,49 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 
+class DoubleLinkedNode:
+    def __init__(self, key, val, pre, tail):
+        self.key = key
+        self.val = val
+        self.pre = pre
+        self.tail = tail
+
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.dict = {}
+        self.head = DoubleLinkedNode(0, 0, None, None)
+        self.tail = DoubleLinkedNode(0, 0, None, None)
+        self.head.tail = self.tail
+        self.tail.pre = self.head
+
+    def get(self, key: int) -> int:
+        if key not in self.dict:
+            return -1
+        self.move(key)
+        return self.dict[key].val
+
+    def move(self, key: int) -> None:
+        node = self.dict[key]
+        node.pre.tail, node.tail.pre = node.tail, node.pre
+        self.head.tail.pre, node.tail, self.head.tail, node.pre = node, self.head.tail, node, self.head
+
+    def put(self, key: int, value: int) -> None:
+        if key not in self.dict:
+            if self.capacity == len(self.dict):
+                tail = self.tail.pre
+                self.dict.pop(tail.key)
+                tail.pre.tail, tail.tail.pre = tail.tail, tail.pre
+            new_node = DoubleLinkedNode(key, value, self.head, self.head.tail)
+            self.head.tail.pre, self.head.tail = new_node, new_node
+            self.dict[key] = new_node
+        else:
+            self.dict[key].val = value
+            self.move(key)
+
+
 # The trick lies at using double linked list + Hashmap to store each pair of key and value
 
 class LRUCache:
