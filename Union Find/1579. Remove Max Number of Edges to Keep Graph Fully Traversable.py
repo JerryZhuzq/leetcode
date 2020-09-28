@@ -8,12 +8,17 @@ class Solution:
         type2 = [n for n in edges if n[0] == 2]
         type3 = [n for n in edges if n[0] == 3]
 
+        # def find(i, union):
+        #     p = union[i]
+        #     while p != union[p]:
+        #         p = union[p]
+        #     union[i] = p
+        #     return p
+
         def find(i, union):
-            p = union[i]
-            while p != union[p]:
-                p = union[p]
-            union[i] = p
-            return p
+            if i != union[i]:
+                union[i] = find(union[i])
+            return i
 
         res, l1, l2 = 0, 0, 0
         for e in type3:
