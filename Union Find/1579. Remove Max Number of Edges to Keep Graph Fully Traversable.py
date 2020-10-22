@@ -16,8 +16,9 @@ class Solution:
         #     return p
 
         def find(i, union):
-            if i != union[i]:
-                union[i] = find(union[i])
+            while i != union[i]:
+                union[i] = union[union[i]]
+                i = union[i]
             return i
 
         res, l1, l2 = 0, 0, 0
